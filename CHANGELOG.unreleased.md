@@ -625,6 +625,47 @@ sometimes{{nogaps}}areimportant
 {{name}} is your name
 ```
 
+#### Handlebars: Fix line breaks and spaces in dynamic element class names ([#6464] by [@FabHof])
+
+This fixes double line breaks and spaces in dynamic element class names of handlebar templates.
+
+<!-- prettier-ignore -->
+```hbs
+// Input
+<div class="  hello {{if goodbye true}}{{if goodbye false}} hello{{if goodbye true}}   hello   {{if goodbye false}} {{if goodbye true}} hello  ">
+  Hello
+</div>
+
+// Output (Prettier stable)
+<div
+  class="hello
+    {{if goodbye true}}
+    {{if goodbye false}}
+     hello
+    {{if goodbye true}}
+     hello
+    {{if goodbye false}}
+
+    {{if goodbye true}}
+     hello"
+>
+  Hello
+</div>
+
+// Output (Prettier master)
+<div
+  class="hello
+    {{if goodbye true}}{{if goodbye false}}
+    hello{{if goodbye true}}
+    hello
+    {{if goodbye false}}hello
+    {{if goodbye true}}
+    hello"
+>
+  Hello
+</div>
+```
+
 [#5910]: https://github.com/prettier/prettier/pull/5910
 [#6186]: https://github.com/prettier/prettier/pull/6186
 [#6206]: https://github.com/prettier/prettier/pull/6206
@@ -645,6 +686,7 @@ sometimes{{nogaps}}areimportant
 [#6411]: https://github.com/prettier/prettier/pull/6411
 [#6438]: https://github.com/prettier/prettier/pull/6411
 [#6441]: https://github.com/prettier/prettier/pull/6441
+[#6464]: https://github.com/prettier/prettier/pull/6464
 [@duailibe]: https://github.com/duailibe
 [@gavinjoyce]: https://github.com/gavinjoyce
 [@sosukesuzuki]: https://github.com/sosukesuzuki
@@ -653,3 +695,4 @@ sometimes{{nogaps}}areimportant
 [@bakkot]: https://gibhub.com/bakkot
 [@thorn0]: https://github.com/thorn0
 [@chadian]: https://github.com/chadian
+[@FabHof]: https://github.com/FabHof
