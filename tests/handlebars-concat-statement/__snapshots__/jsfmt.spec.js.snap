@@ -10,7 +10,7 @@ printWidth: 80
   Hello
 </div>
 
-<div class="hello {{if goodbye true}} {{if goodbye false}} {{if goodbye true}} {{if goodbye false}} {{if goodbye true}}">
+<div class="  hello {{if goodbye true}}{{if goodbye false}} hello{{if goodbye true}}   hello   {{if goodbye false}}hello {{if goodbye true}} hello  ">
   Hello
 </div>
 
@@ -26,6 +26,7 @@ printWidth: 80
 <div class="class-k {{myClass}}   class-l"></div>
 <div class="  class-m   {{myClass}}     class-n {{myClass}}class-o   "></div>
 <div class="  class-p  class-q"></div>
+<div class="  {{myClass}}  {{myClass}}  "></div>
 =====================================output=====================================
 <div class="hello {{if goodbye true}}">
   Hello
@@ -33,15 +34,12 @@ printWidth: 80
 
 <div
   class="hello
+    {{if goodbye true}}{{if goodbye false}}
+    hello{{if goodbye true}}
+    hello
+    {{if goodbye false}}hello
     {{if goodbye true}}
-
-    {{if goodbye false}}
-
-    {{if goodbye true}}
-
-    {{if goodbye false}}
-
-    {{if goodbye true}}"
+    hello"
 >
   Hello
 </div>
@@ -58,6 +56,7 @@ printWidth: 80
 <div class="class-k {{myClass}} class-l"></div>
 <div class="class-m {{myClass}} class-n {{myClass}}class-o"></div>
 <div class="class-p  class-q"></div>
+<div class="{{myClass}} {{myClass}}"></div>
 ================================================================================
 `;
 
@@ -72,7 +71,7 @@ singleQuote: true
   Hello
 </div>
 
-<div class="hello {{if goodbye true}} {{if goodbye false}} {{if goodbye true}} {{if goodbye false}} {{if goodbye true}}">
+<div class="  hello {{if goodbye true}}{{if goodbye false}} hello{{if goodbye true}}   hello   {{if goodbye false}}hello {{if goodbye true}} hello  ">
   Hello
 </div>
 
@@ -88,6 +87,7 @@ singleQuote: true
 <div class="class-k {{myClass}}   class-l"></div>
 <div class="  class-m   {{myClass}}     class-n {{myClass}}class-o   "></div>
 <div class="  class-p  class-q"></div>
+<div class="  {{myClass}}  {{myClass}}  "></div>
 =====================================output=====================================
 <div class="hello {{if goodbye true}}">
   Hello
@@ -95,15 +95,12 @@ singleQuote: true
 
 <div
   class="hello
+    {{if goodbye true}}{{if goodbye false}}
+    hello{{if goodbye true}}
+    hello
+    {{if goodbye false}}hello
     {{if goodbye true}}
-
-    {{if goodbye false}}
-
-    {{if goodbye true}}
-
-    {{if goodbye false}}
-
-    {{if goodbye true}}"
+    hello"
 >
   Hello
 </div>
@@ -120,5 +117,6 @@ singleQuote: true
 <div class="class-k {{myClass}} class-l"></div>
 <div class="class-m {{myClass}} class-n {{myClass}}class-o"></div>
 <div class="class-p  class-q"></div>
+<div class="{{myClass}} {{myClass}}"></div>
 ================================================================================
 `;
