@@ -581,6 +581,50 @@ Previously, Prettier formatted parens wrap binary expressions within call expres
 )();
 ```
 
+#### Handlebars: Fix handling of whitespace and line breaks ([#6354] by [@chadian])
+
+This fixes a variety of whitespace and line break usecases within handlebars and Glimmer templates.
+
+<!-- prettier-ignore -->
+```hbs
+// Input
+<SomeComponent />{{name}}
+
+Some sentence with  {{dynamic}}  expressions.
+
+
+
+sometimes{{nogaps}}areimportant<Hello></Hello>
+{{name}}  is your name
+
+// Output (Prettier stable)
+<SomeComponent />
+{{name}}
+Some sentence with
+{{dynamic}}
+expressions.
+
+
+
+sometimes
+{{nogaps}}
+areimportant
+<Hello />
+{{name}}
+is your name
+
+// Output (Prettier master)
+<SomeComponent />{{name}}
+
+Some sentence with {{dynamic}} expressions.
+
+
+
+sometimes{{nogaps}}areimportant
+<Hello />
+{{name}} is your name
+```
+
 [#5910]: https://github.com/prettier/prettier/pull/5910
 [#6186]: https://github.com/prettier/prettier/pull/6186
 [#6206]: https://github.com/prettier/prettier/pull/6206
@@ -608,3 +652,4 @@ Previously, Prettier formatted parens wrap binary expressions within call expres
 [@jounqin]: https://github.com/JounQin
 [@bakkot]: https://gibhub.com/bakkot
 [@thorn0]: https://github.com/thorn0
+[@chadian]: https://github.com/chadian
