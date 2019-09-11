@@ -111,14 +111,14 @@ function print(path, options, print) {
         ),
         !isVoid
           ? group(
-            concat([
-              hasNonWhitespaceChildren
-                ? indent(printChildren(path, options, print))
-                : "",
-              ifBreak(hasChildren ? hardline : "", ""),
-              concat(["</", n.tag, ">"])
-            ])
-          )
+              concat([
+                hasNonWhitespaceChildren
+                  ? indent(printChildren(path, options, print))
+                  : "",
+                ifBreak(hasChildren ? hardline : "", ""),
+                concat(["</", n.tag, ">"])
+              ])
+            )
           : "",
         nextNode && nextNode.type === "ElementNode" ? hardline : ""
       ]);
